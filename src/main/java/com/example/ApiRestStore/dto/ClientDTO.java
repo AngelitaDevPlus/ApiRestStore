@@ -6,15 +6,18 @@ public class ClientDTO {
     private String name;
     private String email;
     private String phoneNumber;
+
+    private Boolean activeStatus;
     
     public ClientDTO() {
     }
 
-    public ClientDTO(Long idClientDTO, String name, String email, String phoneNumber) {
+    public ClientDTO(Long idClientDTO, String name, String email, String phoneNumber, Boolean activeStatus) {
         this.idClientDTO = idClientDTO;
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
+        this.activeStatus = activeStatus;
     }
 
     public Long getIdClientDTO() {
@@ -48,6 +51,10 @@ public class ClientDTO {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
+    public Boolean getActiveStatus() { return activeStatus; }
+
+    public void setActiveStatus(Boolean activeStatus) { this.activeStatus = activeStatus; }
 
     @Override
     public String toString() {

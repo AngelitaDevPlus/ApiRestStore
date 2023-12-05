@@ -17,5 +17,6 @@ public interface ClientMapper {
     @Mapping(source = "name", target = "name")
     @Mapping(source = "email", target = "email")
     @Mapping(source = "phoneNumber", target = "phoneNumber")
+    @Mapping(source = "activeStatus", target = "activeStatus")
     Client dtoToClient(ClientDTO clientDTO);
 }

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/clients")
+@RequestMapping("/api")
 public class ClientController {
 
     private final ClientService clientService;
@@ -19,25 +19,25 @@ public class ClientController {
         this.clientService = clientService;
     }
 
-    @PostMapping("/create")
+    @PostMapping("/clients")
     @ResponseStatus(HttpStatus.CREATED)
     public ClientDTO postClient(@RequestBody ClientDTO clientDTO) {
         return clientService.createClient(clientDTO);
     }
 
-    @GetMapping("/listAllClients")
+    @GetMapping("/clients")
     @ResponseStatus(HttpStatus.OK)
     public List<ClientDTO> getAllClients() {
         return clientService.findAllClients();
     }
 
-    @GetMapping("/listClient/{id}")
+    @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public ClientDTO getClientById(@PathVariable("id") Long idClientDTO) {
         return clientService.findById(idClientDTO);
     }
 
-    @PutMapping("/updateClient/{id}")
+    @PutMapping("/clients/{id}")
     @ResponseStatus(HttpStatus.OK)
     public ClientDTO putClient(@RequestBody ClientDTO clientDTO, @PathVariable("id") Long idClientDTO) {
         return clientService.updateClient(clientDTO, idClientDTO);
