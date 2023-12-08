@@ -37,8 +37,8 @@ public class ClientService {
             }
             Client client = clientMapper.dtoToClient(clientDTO);
             client.setActiveStatus(Boolean.TRUE);
-            clientRepository.save(client);
-            return clientMapper.entityToDTO(client);
+            Client savedClient = clientRepository.save(client);
+            return clientMapper.entityToDTO(savedClient);
         } else {
             throw new ResponseStatusException(HttpStatus.CONFLICT, "Client not uploaded.");
         }
@@ -75,8 +75,8 @@ public class ClientService {
             client.setName(clientDTO.getName());
             client.setEmail(clientDTO.getEmail());
             client.setPhoneNumber(clientDTO.getPhoneNumber());
-            clientRepository.save(client);
-            return clientMapper.entityToDTO(client);
+            Client updatedClient = clientRepository.save(client);
+            return clientMapper.entityToDTO(updatedClient);
         } else {
             throw new ResponseStatusException(HttpStatus.CONFLICT, "Client not uploaded.");
         }
@@ -89,6 +89,7 @@ public class ClientService {
         if (response.isPresent()) {
             Client client = response.get();
             client.setActiveStatus(false);
+            clientRepository.save(client);
         } else {
             throw new ResponseStatusException(HttpStatus.CONFLICT, "Client not changed.");
         }

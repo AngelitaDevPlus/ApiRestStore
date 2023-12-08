@@ -19,6 +19,14 @@ public class Client {
     public Client() {
     }
 
+    public Client(Long idClient, String name, String email, String phoneNumber, Boolean activeStatus) {
+        this.idClient = idClient;
+        this.name = name;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.activeStatus = activeStatus;
+    }
+
     public Client(String name, String email, String phoneNumber, Boolean activeStatus) {
         this.name = name;
         this.email = email;

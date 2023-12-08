@@ -14,6 +14,7 @@ public interface ClientMapper {
     @Mapping(source = "phoneNumber", target = "phoneNumber")
     ClientDTO entityToDTO(Client client);
 
+    @Mapping(source = "idClientDTO", target = "idClient")
     @Mapping(source = "name", target = "name")
     @Mapping(source = "email", target = "email")
     @Mapping(source = "phoneNumber", target = "phoneNumber")

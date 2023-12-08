@@ -1,14 +1,15 @@
 package com.example.ApiRestStore.dto;
 
+import java.util.Objects;
+
 public class ClientDTO {
 
     private Long idClientDTO;
     private String name;
     private String email;
     private String phoneNumber;
-
     private Boolean activeStatus;
-    
+
     public ClientDTO() {
     }
 
@@ -59,5 +60,18 @@ public class ClientDTO {
     @Override
     public String toString() {
         return "ClientDTO{" + "idClientDTO=" + idClientDTO + ", name=" + name + ", email=" + email + ", phoneNumber=" + phoneNumber + '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ClientDTO clientDTO = (ClientDTO) o;
+        return Objects.equals(idClientDTO, clientDTO.idClientDTO) && Objects.equals(name, clientDTO.name) && Objects.equals(email, clientDTO.email) && Objects.equals(phoneNumber, clientDTO.phoneNumber) && Objects.equals(activeStatus, clientDTO.activeStatus);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(idClientDTO, name, email, phoneNumber, activeStatus);
     }
 }
